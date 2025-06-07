@@ -1,0 +1,198 @@
+{
+    "class" : "HiddenMarkovModel",
+    "name" : "None",
+    "start" : {
+        "class" : "State",
+        "distribution" : null,
+        "name" : "None-start",
+        "weight" : 1.0
+    },
+    "end" : {
+        "class" : "State",
+        "distribution" : null,
+        "name" : "None-end",
+        "weight" : 1.0
+    },
+    "states" : [
+        {
+            "class" : "State",
+            "distribution" : {
+                "class" : "Distribution",
+                "name" : "MultivariateGaussianDistribution",
+                "parameters" : [
+                    [
+                        114.87402700128358,
+                        0.901014592341769
+                    ],
+                    [
+                        [
+                            2784.3652241360132,
+                            -1.947592726243346
+                        ],
+                        [
+                            -1.947592726243346,
+                            0.8120226321593377
+                        ]
+                    ]
+                ],
+                "frozen" : false
+            },
+            "name" : "0",
+            "weight" : 1.0
+        },
+        {
+            "class" : "State",
+            "distribution" : {
+                "class" : "Distribution",
+                "name" : "MultivariateGaussianDistribution",
+                "parameters" : [
+                    [
+                        6.353220845027333,
+                        1.1074910883358982
+                    ],
+                    [
+                        [
+                            167.07702798933767,
+                            1.2942362272946049
+                        ],
+                        [
+                            1.2942362272946049,
+                            0.7933888821627882
+                        ]
+                    ]
+                ],
+                "frozen" : false
+            },
+            "name" : "1",
+            "weight" : 1.0
+        },
+        {
+            "class" : "State",
+            "distribution" : {
+                "class" : "Distribution",
+                "name" : "MultivariateGaussianDistribution",
+                "parameters" : [
+                    [
+                        -0.7729358033182455,
+                        8.22693201197101
+                    ],
+                    [
+                        [
+                            4.898985660141761,
+                            2.536918693854883
+                        ],
+                        [
+                            2.536918693854883,
+                            49.12622959733722
+                        ]
+                    ]
+                ],
+                "frozen" : false
+            },
+            "name" : "2",
+            "weight" : 1.0
+        },
+        {
+            "class" : "State",
+            "distribution" : null,
+            "name" : "None-start",
+            "weight" : 1.0
+        },
+        {
+            "class" : "State",
+            "distribution" : null,
+            "name" : "None-end",
+            "weight" : 1.0
+        }
+    ],
+    "end_index" : 4,
+    "start_index" : 3,
+    "silent_index" : 3,
+    "edges" : [
+        [
+            3,
+            0,
+            6.772253901934387e-298,
+            0.18973864130795626,
+            null
+        ],
+        [
+            3,
+            1,
+            1.0,
+            0.620582842765436,
+            null
+        ],
+        [
+            3,
+            2,
+            1.859888012789673e-111,
+            0.8332719240000551,
+            null
+        ],
+        [
+            0,
+            0,
+            0.9892727551415479,
+            0.6030793746971395,
+            null
+        ],
+        [
+            0,
+            1,
+            0.010727244858451978,
+            0.5843852799867153,
+            null
+        ],
+        [
+            0,
+            2,
+            6.771974731223047e-59,
+            0.6415257582694789,
+            null
+        ],
+        [
+            1,
+            0,
+            0.004265219666537987,
+            0.4473680225826717,
+            null
+        ],
+        [
+            1,
+            1,
+            0.9706048272289759,
+            0.5525377560618486,
+            null
+        ],
+        [
+            1,
+            2,
+            0.025129953104486246,
+            0.6271925994229615,
+            null
+        ],
+        [
+            2,
+            0,
+            0.0002518311724848745,
+            0.031288333041299854,
+            null
+        ],
+        [
+            2,
+            1,
+            0.03573933517192328,
+            0.9329153716526544,
+            null
+        ],
+        [
+            2,
+            2,
+            0.9640088336555919,
+            0.7089384007726257,
+            null
+        ]
+    ],
+    "distribution ties" : []
+}

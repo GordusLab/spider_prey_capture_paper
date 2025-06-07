@@ -1,0 +1,5 @@
+model_checkpoint_path: "B:\\HsinYi\\DeepLabCut_Anthony\\8videos_1400frames_relabled\\dlc-models\\iteration-6\\8videos_1400frames_relabledApr12-trainset95shuffle1\\train\\snapshot-50000"
+all_model_checkpoint_paths: "B:\\HsinYi\\DeepLabCut_Anthony\\8videos_1400frames_relabled\\dlc-models\\iteration-6\\8videos_1400frames_relabledApr12-trainset95shuffle1\\train\\snapshot-35000"
+all_model_checkpoint_paths: "B:\\HsinYi\\DeepLabCut_Anthony\\8videos_1400frames_relabled\\dlc-models\\iteration-6\\8videos_1400frames_relabledApr12-trainset95shuffle1\\train\\snapshot-40000"
+all_model_checkpoint_paths: "B:\\HsinYi\\DeepLabCut_Anthony\\8videos_1400frames_relabled\\dlc-models\\iteration-6\\8videos_1400frames_relabledApr12-trainset95shuffle1\\train\\snapshot-45000"
+all_model_checkpoint_paths: "B:\\HsinYi\\DeepLabCut_Anthony\\8videos_1400frames_relabled\\dlc-models\\iteration-6\\8videos_1400frames_relabledApr12-trainset95shuffle1\\train\\snapshot-50000"
