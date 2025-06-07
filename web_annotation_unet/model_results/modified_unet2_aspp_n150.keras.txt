@@ -1,0 +1,29 @@
+  
+                                                                                                  
+==================================================================================================
+Total params: 249,916
+Trainable params: 249,916
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+2025-02-13 12:39:24.602062: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 7.05GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+576/576 [==============================] - 155s 259ms/step - loss: 0.1630 - accuracy: 0.9346 - val_loss: 0.1218 - val_accuracy: 0.9501
+Epoch 2/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.1277 - accuracy: 0.9435 - val_loss: 0.1079 - val_accuracy: 0.9542
+Epoch 3/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.1118 - accuracy: 0.9497 - val_loss: 0.0999 - val_accuracy: 0.9576
+Epoch 4/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.0999 - accuracy: 0.9553 - val_loss: 0.0951 - val_accuracy: 0.9607
+Epoch 5/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.0908 - accuracy: 0.9597 - val_loss: 0.0909 - val_accuracy: 0.9626
+Epoch 6/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.0833 - accuracy: 0.9633 - val_loss: 0.0922 - val_accuracy: 0.9624
+Epoch 7/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.0779 - accuracy: 0.9659 - val_loss: 0.0920 - val_accuracy: 0.9651
+Epoch 8/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.0730 - accuracy: 0.9682 - val_loss: 0.0900 - val_accuracy: 0.9645
+Epoch 9/10
+576/576 [==============================] - 148s 257ms/step - loss: 0.0693 - accuracy: 0.9699 - val_loss: 0.0892 - val_accuracy: 0.9660
+Epoch 10/10
+576/576 [==============================] - 150s 261ms/step - loss: 0.0666 - accuracy: 0.9711 - val_loss: 0.0918 - val_accuracy: 0.9654
+Test Loss: 0.0944, Test Accuracy: 0.9601

@@ -1,0 +1,28 @@
+                                                                                                  
+==================================================================================================
+Total params: 249,916
+Trainable params: 249,916
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+396/396 [==============================] - 102s 253ms/step - loss: 0.1936 - accuracy: 0.9272 - val_loss: 0.1358 - val_accuracy: 0.9448
+Epoch 2/10
+396/396 [==============================] - 100s 252ms/step - loss: 0.1444 - accuracy: 0.9377 - val_loss: 0.1218 - val_accuracy: 0.9502
+Epoch 3/10
+396/396 [==============================] - 100s 252ms/step - loss: 0.1296 - accuracy: 0.9425 - val_loss: 0.1105 - val_accuracy: 0.9535
+Epoch 4/10
+396/396 [==============================] - 100s 253ms/step - loss: 0.1174 - accuracy: 0.9472 - val_loss: 0.1043 - val_accuracy: 0.9559
+Epoch 5/10
+396/396 [==============================] - 101s 254ms/step - loss: 0.1072 - accuracy: 0.9518 - val_loss: 0.0988 - val_accuracy: 0.9585
+Epoch 6/10
+396/396 [==============================] - 98s 249ms/step - loss: 0.0982 - accuracy: 0.9560 - val_loss: 0.0954 - val_accuracy: 0.9606
+Epoch 7/10
+396/396 [==============================] - 98s 249ms/step - loss: 0.0925 - accuracy: 0.9588 - val_loss: 0.0927 - val_accuracy: 0.9613
+Epoch 8/10
+396/396 [==============================] - 99s 249ms/step - loss: 0.0855 - accuracy: 0.9622 - val_loss: 0.0919 - val_accuracy: 0.9634
+Epoch 9/10
+396/396 [==============================] - 99s 251ms/step - loss: 0.0809 - accuracy: 0.9644 - val_loss: 0.0961 - val_accuracy: 0.9642
+Epoch 10/10
+396/396 [==============================] - 99s 251ms/step - loss: 0.0766 - accuracy: 0.9665 - val_loss: 0.0932 - val_accuracy: 0.9648
+Out[13]: <keras.callbacks.History at 0x248a421b190>
+Test Loss: 0.1000, Test Accuracy: 0.9583

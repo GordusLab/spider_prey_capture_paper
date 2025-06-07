@@ -1,0 +1,32 @@
+==================================================================================================
+Total params: 763,300
+Trainable params: 763,300
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+2025-02-13 09:40:29.960303: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8101
+2025-02-13 09:40:33.788836: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 5.64GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2025-02-13 09:40:35.310784: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 5.64GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2025-02-13 09:40:35.683350: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 7.05GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2025-02-13 09:40:35.814442: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 4.07GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2025-02-13 09:40:35.820532: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 4.17GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+936/936 [==============================] - 380s 397ms/step - loss: 0.1374 - accuracy: 0.9420 - val_loss: 0.0972 - val_accuracy: 0.9583
+Epoch 2/10
+936/936 [==============================] - 369s 395ms/step - loss: 0.0690 - accuracy: 0.9701 - val_loss: 0.0881 - val_accuracy: 0.9689
+Epoch 3/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0397 - accuracy: 0.9832 - val_loss: 0.0930 - val_accuracy: 0.9724
+Epoch 4/10
+936/936 [==============================] - 369s 395ms/step - loss: 0.0301 - accuracy: 0.9874 - val_loss: 0.0979 - val_accuracy: 0.9737
+Epoch 5/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0254 - accuracy: 0.9894 - val_loss: 0.0995 - val_accuracy: 0.9742
+Epoch 6/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0239 - accuracy: 0.9901 - val_loss: 0.1032 - val_accuracy: 0.9748
+Epoch 7/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0205 - accuracy: 0.9915 - val_loss: 0.1026 - val_accuracy: 0.9755
+Epoch 8/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0193 - accuracy: 0.9920 - val_loss: 0.1016 - val_accuracy: 0.9755
+Epoch 9/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0181 - accuracy: 0.9925 - val_loss: 0.1056 - val_accuracy: 0.9756
+Epoch 10/10
+936/936 [==============================] - 369s 394ms/step - loss: 0.0174 - accuracy: 0.9928 - val_loss: 0.1047 - val_accuracy: 0.9762
+Test Loss: 0.0817, Test Accuracy: 0.9768

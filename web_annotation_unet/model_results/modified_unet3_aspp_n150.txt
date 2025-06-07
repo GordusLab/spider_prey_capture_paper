@@ -1,0 +1,23 @@
+  endframe = int(df.iloc[i][2])
+576/576 [==============================] - 212s 362ms/step - loss: 0.1843 - accuracy: 0.9310 - val_loss: 0.1297 - val_accuracy: 0.9478
+Epoch 2/10
+576/576 [==============================] - 207s 360ms/step - loss: 0.1319 - accuracy: 0.9412 - val_loss: 0.1113 - val_accuracy: 0.9529
+Epoch 3/10
+576/576 [==============================] - 208s 361ms/step - loss: 0.1077 - accuracy: 0.9514 - val_loss: 0.1050 - val_accuracy: 0.9582
+Epoch 4/10
+576/576 [==============================] - 208s 361ms/step - loss: 0.0880 - accuracy: 0.9610 - val_loss: 0.0957 - val_accuracy: 0.9618
+Epoch 5/10
+576/576 [==============================] - 208s 361ms/step - loss: 0.0723 - accuracy: 0.9686 - val_loss: 0.0904 - val_accuracy: 0.9643
+Epoch 6/10
+576/576 [==============================] - 208s 360ms/step - loss: 0.0596 - accuracy: 0.9744 - val_loss: 0.0934 - val_accuracy: 0.9669
+Epoch 7/10
+576/576 [==============================] - 208s 360ms/step - loss: 0.0507 - accuracy: 0.9784 - val_loss: 0.0946 - val_accuracy: 0.9672
+Epoch 8/10
+576/576 [==============================] - 208s 361ms/step - loss: 0.0446 - accuracy: 0.9811 - val_loss: 0.1027 - val_accuracy: 0.9677
+Epoch 9/10
+576/576 [==============================] - 208s 361ms/step - loss: 0.0397 - accuracy: 0.9832 - val_loss: 0.1088 - val_accuracy: 0.9691
+Epoch 10/10
+576/576 [==============================] - 208s 361ms/step - loss: 0.0363 - accuracy: 0.9847 - val_loss: 0.1050 - val_accuracy: 0.9693
+
+Test Loss: 0.0924, Test Accuracy: 0.9668
+1/1 [==============================] - 0s 324ms/step

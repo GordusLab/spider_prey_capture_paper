@@ -1,0 +1,22 @@
+Epoch 1/10
+2025-02-14 15:58:21.546897: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8101
+36/36 [==============================] - 17s 253ms/step - loss: 0.2669 - accuracy: 0.8928 - val_loss: 0.1638 - val_accuracy: 0.9415
+Epoch 2/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1680 - accuracy: 0.9317 - val_loss: 0.1496 - val_accuracy: 0.9451
+Epoch 3/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1607 - accuracy: 0.9343 - val_loss: 0.1419 - val_accuracy: 0.9463
+Epoch 4/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1555 - accuracy: 0.9360 - val_loss: 0.1424 - val_accuracy: 0.9440
+Epoch 5/10
+36/36 [==============================] - 9s 241ms/step - loss: 0.1561 - accuracy: 0.9354 - val_loss: 0.1400 - val_accuracy: 0.9481
+Epoch 6/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1498 - accuracy: 0.9375 - val_loss: 0.1338 - val_accuracy: 0.9486
+Epoch 7/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1483 - accuracy: 0.9379 - val_loss: 0.1286 - val_accuracy: 0.9492
+Epoch 8/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1453 - accuracy: 0.9389 - val_loss: 0.1281 - val_accuracy: 0.9500
+Epoch 9/10
+36/36 [==============================] - 9s 241ms/step - loss: 0.1453 - accuracy: 0.9390 - val_loss: 0.1266 - val_accuracy: 0.9497
+Epoch 10/10
+36/36 [==============================] - 9s 242ms/step - loss: 0.1444 - accuracy: 0.9392 - val_loss: 0.1277 - val_accuracy: 0.9501
+Test Loss: 0.1295, Test Accuracy: 0.9462

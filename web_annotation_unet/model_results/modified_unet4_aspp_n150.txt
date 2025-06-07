@@ -1,0 +1,29 @@
+==
+Total params: 296,548
+Trainable params: 296,548
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+2025-02-13 13:49:22.721758: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.53GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+576/576 [==============================] - 139s 238ms/step - loss: 0.1715 - accuracy: 0.9318 - val_loss: 0.1218 - val_accuracy: 0.9501
+Epoch 2/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.1308 - accuracy: 0.9423 - val_loss: 0.1106 - val_accuracy: 0.9538
+Epoch 3/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.1200 - accuracy: 0.9462 - val_loss: 0.1044 - val_accuracy: 0.9556
+Epoch 4/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.1110 - accuracy: 0.9500 - val_loss: 0.1018 - val_accuracy: 0.9572
+Epoch 5/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.1041 - accuracy: 0.9533 - val_loss: 0.0990 - val_accuracy: 0.9592
+Epoch 6/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.0984 - accuracy: 0.9561 - val_loss: 0.0942 - val_accuracy: 0.9609
+Epoch 7/10
+576/576 [==============================] - 136s 235ms/step - loss: 0.0932 - accuracy: 0.9586 - val_loss: 0.0938 - val_accuracy: 0.9614
+Epoch 8/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.0900 - accuracy: 0.9602 - val_loss: 0.0941 - val_accuracy: 0.9620
+Epoch 9/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.0868 - accuracy: 0.9618 - val_loss: 0.0920 - val_accuracy: 0.9624
+Epoch 10/10
+576/576 [==============================] - 135s 235ms/step - loss: 0.0838 - accuracy: 0.9632 - val_loss: 0.0903 - val_accuracy: 0.9639
+Out[25]: <keras.callbacks.History at 0x22872241700>
+
+Test Loss: 0.0967, Test Accuracy: 0.9580

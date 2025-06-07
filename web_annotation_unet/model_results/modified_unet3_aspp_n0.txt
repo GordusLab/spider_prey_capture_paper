@@ -1,0 +1,33 @@
+                                16)                                                               
+                                                                                                  
+ conv2d_10 (Conv2D)             (None, 1280, 1024,   17          ['activation_5[0][0]']           
+                                1)                                                                
+                                                                                                  
+==================================================================================================
+Total params: 590,522
+Trainable params: 590,522
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+2025-02-13 11:51:11.387807: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8101
+36/36 [==============================] - 19s 385ms/step - loss: 0.4429 - accuracy: 0.8926 - val_loss: 0.1774 - val_accuracy: 0.9349
+Epoch 2/10
+36/36 [==============================] - 13s 371ms/step - loss: 0.1857 - accuracy: 0.9254 - val_loss: 0.1584 - val_accuracy: 0.9382
+Epoch 3/10
+36/36 [==============================] - 13s 370ms/step - loss: 0.1743 - accuracy: 0.9284 - val_loss: 0.1532 - val_accuracy: 0.9402
+Epoch 4/10
+36/36 [==============================] - 13s 372ms/step - loss: 0.1695 - accuracy: 0.9301 - val_loss: 0.1483 - val_accuracy: 0.9420
+Epoch 5/10
+36/36 [==============================] - 13s 371ms/step - loss: 0.1649 - accuracy: 0.9320 - val_loss: 0.1439 - val_accuracy: 0.9432
+Epoch 6/10
+36/36 [==============================] - 13s 371ms/step - loss: 0.1589 - accuracy: 0.9343 - val_loss: 0.1436 - val_accuracy: 0.9431
+Epoch 7/10
+36/36 [==============================] - 13s 371ms/step - loss: 0.1564 - accuracy: 0.9351 - val_loss: 0.1366 - val_accuracy: 0.9462
+Epoch 8/10
+36/36 [==============================] - 13s 372ms/step - loss: 0.1543 - accuracy: 0.9356 - val_loss: 0.1487 - val_accuracy: 0.9426
+Epoch 9/10
+36/36 [==============================] - 13s 371ms/step - loss: 0.1559 - accuracy: 0.9342 - val_loss: 0.1360 - val_accuracy: 0.9457
+Epoch 10/10
+36/36 [==============================] - 13s 372ms/step - loss: 0.1505 - accuracy: 0.9365 - val_loss: 0.1347 - val_accuracy: 0.9475
+Test Loss: 0.1383, Test Accuracy: 0.9422
+1/1 [==============================] - 2s 2s/step

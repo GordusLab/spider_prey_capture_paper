@@ -1,0 +1,38 @@
+                                                                                                  
+==================================================================================================
+Total params: 763,300
+Trainable params: 763,300
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+1116/1116 [==============================] - 433s 386ms/step - loss: 0.1368 - accuracy: 0.9424 - val_loss: 0.0949 - val_accuracy: 0.9593
+Epoch 2/10
+2025-02-12 19:23:13.169238: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+   1/1116 [..............................] - ETA: 6:47 - loss: 0.1134 - accuracy: 0.94822025-02-12 19:23:13.535684: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+   2/1116 [..............................] - ETA: 6:45 - loss: 0.1113 - accuracy: 0.94872025-02-12 19:23:13.899826: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+   3/1116 [..............................] - ETA: 6:44 - loss: 0.0977 - accuracy: 0.95532025-02-12 19:23:14.261695: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+   4/1116 [..............................] - ETA: 6:45 - loss: 0.0916 - accuracy: 0.95842025-02-12 19:23:14.627744: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+   5/1116 [..............................] - ETA: 6:45 - loss: 0.0936 - accuracy: 0.95722025-02-12 19:23:14.992969: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+   6/1116 [..............................] - ETA: 6:44 - loss: 0.0922 - accuracy: 0.95802025-02-12 19:23:15.358821: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 647.50MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+1116/1116 [==============================] - 453s 406ms/step - loss: 0.0638 - accuracy: 0.9723 - val_loss: 0.0878 - val_accuracy: 0.9694
+Epoch 3/10
+1116/1116 [==============================] - 431s 386ms/step - loss: 0.0374 - accuracy: 0.9842 - val_loss: 0.1019 - val_accuracy: 0.9729
+Epoch 4/10
+1116/1116 [==============================] - 432s 387ms/step - loss: 0.0282 - accuracy: 0.9882 - val_loss: 0.0988 - val_accuracy: 0.9740
+Epoch 5/10
+1116/1116 [==============================] - 432s 387ms/step - loss: 0.0243 - accuracy: 0.9899 - val_loss: 0.1013 - val_accuracy: 0.9748
+Epoch 6/10
+1116/1116 [==============================] - 433s 388ms/step - loss: 0.0220 - accuracy: 0.9909 - val_loss: 0.1015 - val_accuracy: 0.9753
+Epoch 7/10
+1116/1116 [==============================] - 431s 386ms/step - loss: 0.0199 - accuracy: 0.9918 - val_loss: 0.1034 - val_accuracy: 0.9756
+Epoch 8/10
+1116/1116 [==============================] - 430s 385ms/step - loss: 0.0185 - accuracy: 0.9924 - val_loss: 0.1003 - val_accuracy: 0.9759
+Epoch 9/10
+1116/1116 [==============================] - 430s 385ms/step - loss: 0.0174 - accuracy: 0.9928 - val_loss: 0.1060 - val_accuracy: 0.9760
+Epoch 10/10
+1116/1116 [==============================] - 431s 386ms/step - loss: 0.0167 - accuracy: 0.9931 - val_loss: 0.1094 - val_accuracy: 0.9766
+Out[12]: <keras.callbacks.History at 0x1b06645fd30>
+
+Test Loss: 0.0845, Test Accuracy: 0.9771
+2025-02-12 20:29:53.240662: W tensorflow/core/kernels/gpu_utils.cc:50] Failed to allocate memory for convolution redzone checking; skipping this check. This is benign and only means that we won't check cudnn for out-of-bounds reads and writes. This message will only be printed once.
+1/1 [==============================] - 3s 3s/step

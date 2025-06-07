@@ -1,0 +1,31 @@
+ 
+==================================================================================================
+Total params 1,940,817
+Trainable params 1,940,817
+Non-trainable params 0
+__________________________________________________________________________________________________
+Epoch 110
+2025-02-14 120042.244322 I tensorflowstream_executorcudacuda_dnn.cc384] Loaded cuDNN version 8101
+2025-02-14 120045.802859 W tensorflowcorecommon_runtimebfc_allocator.cc290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 5.64GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+3636 [==============================] - 17s 252msstep - loss 0.2641 - dice_coef 0.3994 - val_loss 0.1525 - val_dice_coef 0.4996
+Epoch 210
+3636 [==============================] - 9s 240msstep - loss 0.1691 - dice_coef 0.5211 - val_loss 0.1459 - val_dice_coef 0.5530
+Epoch 310
+3636 [==============================] - 9s 240msstep - loss 0.1620 - dice_coef 0.5415 - val_loss 0.1373 - val_dice_coef 0.5520
+Epoch 410
+3636 [==============================] - 9s 240msstep - loss 0.1571 - dice_coef 0.5586 - val_loss 0.1388 - val_dice_coef 0.5352
+Epoch 510
+3636 [==============================] - 9s 240msstep - loss 0.1544 - dice_coef 0.5656 - val_loss 0.1348 - val_dice_coef 0.5375
+Epoch 610
+3636 [==============================] - 9s 240msstep - loss 0.1516 - dice_coef 0.5637 - val_loss 0.1325 - val_dice_coef 0.5634
+Epoch 710
+3636 [==============================] - 9s 240msstep - loss 0.1518 - dice_coef 0.5739 - val_loss 0.1354 - val_dice_coef 0.5831
+Epoch 810
+3636 [==============================] - 9s 240msstep - loss 0.1499 - dice_coef 0.5759 - val_loss 0.1309 - val_dice_coef 0.5743
+Epoch 910
+3636 [==============================] - 9s 241msstep - loss 0.1460 - dice_coef 0.5840 - val_loss 0.1281 - val_dice_coef 0.5880
+Epoch 1010
+3636 [==============================] - 9s 240msstep - loss 0.1441 - dice_coef 0.5914 - val_loss 0.1296 - val_dice_coef 0.5654
+Test Loss 0.1309, Test Accuracy 0.9452
+2025-02-14 120217.938337 W tensorflowcorecommon_runtimebfc_allocator.cc290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 7.05GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+11 [==============================] - 2s 2sstep

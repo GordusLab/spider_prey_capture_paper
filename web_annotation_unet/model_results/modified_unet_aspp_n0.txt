@@ -1,0 +1,28 @@
+==================================================================================================
+Total params: 763,300
+Trainable params: 763,300
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+36/36 [==============================] - 16s 397ms/step - loss: 0.2850 - accuracy: 0.9196 - val_loss: 0.1621 - val_accuracy: 0.9418
+Epoch 2/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1692 - accuracy: 0.9310 - val_loss: 0.1486 - val_accuracy: 0.9425
+Epoch 3/10
+36/36 [==============================] - 14s 385ms/step - loss: 0.1619 - accuracy: 0.9329 - val_loss: 0.1461 - val_accuracy: 0.9462
+Epoch 4/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1538 - accuracy: 0.9356 - val_loss: 0.1382 - val_accuracy: 0.9443
+Epoch 5/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1494 - accuracy: 0.9362 - val_loss: 0.1311 - val_accuracy: 0.9461
+Epoch 6/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1462 - accuracy: 0.9373 - val_loss: 0.1256 - val_accuracy: 0.9480
+Epoch 7/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1412 - accuracy: 0.9383 - val_loss: 0.1225 - val_accuracy: 0.9492
+Epoch 8/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1396 - accuracy: 0.9388 - val_loss: 0.1205 - val_accuracy: 0.9495
+Epoch 9/10
+36/36 [==============================] - 14s 386ms/step - loss: 0.1385 - accuracy: 0.9389 - val_loss: 0.1199 - val_accuracy: 0.9497
+Epoch 10/10
+36/36 [==============================] - 14s 387ms/step - loss: 0.1359 - accuracy: 0.9395 - val_loss: 0.1196 - val_accuracy: 0.9498
+Test Loss: 0.1279, Test Accuracy: 0.9441
+1/1 [==============================] - 0s 301ms/step
+model.save('modified_unet_aspp_n0.keras')

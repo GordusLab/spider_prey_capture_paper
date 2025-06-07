@@ -1,0 +1,31 @@
+                                1)                                                                
+                                                                                                  
+==================================================================================================
+Total params: 249,916
+Trainable params: 249,916
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Epoch 1/10
+2025-02-13 08:23:37.058387: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8101
+2025-02-13 08:23:42.150041: W tensorflow/core/common_runtime/bfc_allocator.cc:290] Allocator (GPU_0_bfc) ran out of memory trying to allocate 7.05GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+36/36 [==============================] - 19s 269ms/step - loss: 0.4281 - accuracy: 0.9070 - val_loss: 0.1758 - val_accuracy: 0.9385
+Epoch 2/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1903 - accuracy: 0.9286 - val_loss: 0.1586 - val_accuracy: 0.9413
+Epoch 3/10
+36/36 [==============================] - 9s 258ms/step - loss: 0.1730 - accuracy: 0.9308 - val_loss: 0.1519 - val_accuracy: 0.9420
+Epoch 4/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1691 - accuracy: 0.9310 - val_loss: 0.1542 - val_accuracy: 0.9410
+Epoch 5/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1663 - accuracy: 0.9319 - val_loss: 0.1480 - val_accuracy: 0.9430
+Epoch 6/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1597 - accuracy: 0.9335 - val_loss: 0.1398 - val_accuracy: 0.9453
+Epoch 7/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1550 - accuracy: 0.9356 - val_loss: 0.1365 - val_accuracy: 0.9467
+Epoch 8/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1517 - accuracy: 0.9363 - val_loss: 0.1403 - val_accuracy: 0.9448
+Epoch 9/10
+36/36 [==============================] - 9s 257ms/step - loss: 0.1519 - accuracy: 0.9359 - val_loss: 0.1376 - val_accuracy: 0.9458
+Epoch 10/10
+36/36 [==============================] - 9s 259ms/step - loss: 0.1515 - accuracy: 0.9360 - val_loss: 0.1314 - val_accuracy: 0.9480
+Out[5]: <keras.callbacks.History at 0x248a41eefa0>
+Test Loss: 0.1344, Test Accuracy: 0.9433
