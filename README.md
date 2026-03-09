@@ -71,7 +71,7 @@
 * Run DeepLabCut to track spider's joints from side videos recordings.
 * Totally tracked 20 joints in each videos:
 	* spider’s anterior and posterior legs: body-coxa, coxa-femur, femur-tibia, and tibia-metatarsus joints, as well as the tip of the tarsus.
-	 ![Alt text](./documentations/spider_leg_anatomy.svg)
+	 ![Alt text](./documentation/spider_leg_anatomy.svg)
 ##### Analyze new videos
 1. Analyzing new video: Run `deeplabcut_analyze new video.ipynb`
 2. Extract outlier frame + Retrain network + create new videos: Run `deeplabcut_script.ipynb`
@@ -106,7 +106,7 @@
 2. UMAP embeddings:
 	1. n_neighbors=100,min_dist=0,n_components=5
 	
-		 ![Alt text](./documentations/umap_all30preyvideos.png)
+		 ![Alt text](./documentation/umap_all30preyvideos.png)
 3. K mean clustering
 	1. Use **K-means** to cluster the data into 3 groups → this gives **pseudo-labels** for the states.
 4. HMM
@@ -118,12 +118,11 @@
 		* min_iteration = 50
 		* max_iteration = 500
 		* stop_threshold = 1e-5
-	![Alt text](./documentations/HMM_2.svg)
+	![Alt text](./documentation/HMM_2.svg)
 
 
 ### Result summary 
 
 1. HMM predict spider's behaviors with 83% accuracy.  (Based on 10 labeled videos)
-	![Alt text](documentations/wavelethmm_manual_accuracy.svg)
-2. Model transition matrix:
-	![Alt text](documentations/waveletHMM_transition_matrix.png)
+	![Alt text](documentation/wavelethmm_manual_accuracy.svg)
+
