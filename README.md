@@ -124,6 +124,6 @@
 ### Result summary 
 
 1. HMM predict spider's behaviors with 83% accuracy.  (Based on 10 labeled videos)
-	![Alt text](./documentations/wavelethmm_manual_accuracy.svg)
+	![Alt text](documentations/wavelethmm_manual_accuracy.svg)
 2. Model transition matrix:
-	![Alt text](./documentations/waveletHMM_transition_matrix.png)
+	![Alt text](documentations/waveletHMM_transition_matrix.png)
