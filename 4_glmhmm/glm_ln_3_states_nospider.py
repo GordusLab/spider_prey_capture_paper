@@ -46,13 +46,13 @@ for stimulus_window in range(10,11,2):
         observations = []
         stimulus =[]
         stimulus_all=[]
-        stimulus_fly=[]
+
         stimulus_v_x = []
         stimulus_v_y = []
-        stimulus_fly_all=[]
+
         stimulus_v_x_all = []
         stimulus_v_y_all = []
-        observations_fly = []
+
         for j in range(len(sensory_roi_files)):
             sensory_roi = np.load(sensory_roi_files[j])
             sensory_stft = np.load(sensory_stft_files[j])
@@ -65,15 +65,6 @@ for stimulus_window in range(10,11,2):
             f_spec_fly_p = sensory_stft['f_spec_fly_p']
             f_spec_spider_p = sensory_stft['f_spec_spider_p']
             vid_name = sensory_roi_files[j].split('/sensory_auto\\')[1].split('_roi_coordinates_side.npz')[0]
-            r = roi_spider_list[:, 1] + roi_spider_list[:, 3] / 2 - roi_fly_list[:, 1] - roi_fly_list[:, 3] / 2
-            r = np.abs(r)
-            r = r / ((roi_spider_list[:, 2]+roi_spider_list[:, 3]))/2
-            #r = r / np.min(r)
-            r = (1 / r) ** 2
-            r = r / np.max(r)
-            r[np.where(r<0.5)[0]]=0.5
-            # r=r+0.5
-            # r=r/np.max(r)
             x = roi_fly_list[:, 0] + roi_fly_list[:, 2] / 2
             v_x = x - np.roll(x, 1)
             v_x = v_x[1:len(v_x)]
@@ -86,19 +77,15 @@ for stimulus_window in range(10,11,2):
             v_y = np.abs(v_y)
 
             ## Load beh
-            # filenames = glob.glob(videodirectory+ 'wavelet/'+vid_name+ '*_croprotaligned01234_nonormalized_wavelet.npz')
-            # csv_filenames = glob.glob(videodirectory+'merging_static/' + vid_name + '*_wavelet_timestep.csv')
             beh_hmm = np.load(
                 glob.glob(videodirectory + 'sensory_auto/' + vid_name + '*_hmm_umap_filtered_predictedlabels.npy')[0]
                 )
 
             ## Sensory
             test_divide = np.divide(f_spec_fly, f_spec_fly_p)
-            # test_divide = np.mean(test_divide, axis=0)
+
             t = [i for i in range(int(40 / 2), (nframes - int(40 / 2)), 2)]
-            # t= [i for i in range(4000, 6000, 10)]
-            # if '0328' in sensory_roi_files[j]:
-            #     t.append(5100)
+
             t = np.array(t)
 
             t3 = [i for i in range(0, initial_time[j], 1)]
@@ -106,12 +93,7 @@ for stimulus_window in range(10,11,2):
             yinterp3 = np.interp(t3, t, np.mean(test_divide[0:13, ], axis=0))
             yinterp3_mean = np.mean(yinterp3)
             yinterp3_std = np.std(yinterp3)
-            yinterp3fly = np.interp(t3, t, np.mean(f_spec_fly[0:13, ], axis=0))
-            yinterp3fly_mean = np.mean(yinterp3fly)
-            yinterp3fly_std = np.std(yinterp3fly)
-            yinterp3spider = np.interp(t3, t, np.mean(f_spec_spider_p[0:13, ], axis=0))
-            yinterp3spider_mean = np.mean(yinterp3spider)
-            yinterp3spider_std = np.std(yinterp3spider)
+
 
             t2 = [i for i in range(initial_time[j], (len(beh_hmm) + initial_time[j]), 1)]
             # # t= [i for i in range(4000, 6000, 10)]
@@ -119,21 +101,7 @@ for stimulus_window in range(10,11,2):
             #
             yinterp = np.interp(t2, t, np.mean(test_divide[0:13, ], axis=0))
             yinterp = (yinterp - yinterp3_mean) / yinterp3_std
-            yinterpspider = np.interp(t2, t, np.mean(f_spec_spider_p[0:13, ], axis=0))
-            #yinterpspider = (yinterpspider - yinterp3spider_mean) / yinterp3spider_std
-            yinterpspider = yinterpspider / (np.max(yinterpspider))
-            # yinterp = yinterp/(np.max(yinterp))
-            # yinterp = interp1d(t,  test_divide, axis=1)
-            # yinterp = yinterp(t2)
-            yinterpfly = np.interp(t2, t, np.mean(f_spec_fly[0:13, :], axis=0))
-            yinterpfly = (yinterpfly - yinterp3fly_mean) / yinterp3fly_std
-            #yinterpfly = yinterpfly / (np.max(yinterpfly))
-            #yinterpfly = yinterpfly - yinterpspider * r[t2]
-            #yinterpfly = yinterpfly / np.max(yinterpfly)
-            # if states ==0:
-            #
-            #     v_x_all.append(v_x[t2][0:len(v_x[t2])-stimulus_window])
-            #     v_y_all.append(v_y[t2][0:len(v_y[t2])-stimulus_window])
+
             v_x_sensory = v_x[t2][0:len(v_x[t2])]
             v_y_sensory = v_y[t2][0:len(v_y[t2])]
 
@@ -143,16 +111,6 @@ for stimulus_window in range(10,11,2):
 
             v_x_sensory = (v_x_sensory  -np.mean(v_x_sensory )) / np.std(v_x_sensory)
             v_y_sensory = (v_y_sensory  -np.mean(v_y_sensory )) / np.std(v_y_sensory)
-
-            # for v_time in range(len(v_x_sensory)):
-            #     if v_time < int(v_smooth_window / 2):
-            #         v_x_sensory[v_time] = np.max(v_x_sensory[0: int(v_smooth_window)])
-            #         v_y_sensory[v_time] = np.max(v_y_sensory[0: int(v_smooth_window)])
-            #     else:
-            #         v_x_sensory[v_time] = np.max(
-            #             v_x_sensory[v_time - int(v_smooth_window / 2): v_time + int(v_smooth_window / 2)])
-            #         v_y_sensory[v_time] = np.max(
-            #             v_y_sensory[v_time - int(v_smooth_window / 2): v_time + int(v_smooth_window / 2)])
 
             ## Spike trigger average
             from itertools import groupby
@@ -167,7 +125,7 @@ for stimulus_window in range(10,11,2):
 
             idx = np.where(np.array(uniquekeys)==states)
             stimulus_temp=[]
-            stimulus_temp_fly=[]
+
 
             stimulus_v_x_temp = []
             stimulus_v_y_temp = []
@@ -179,18 +137,16 @@ for stimulus_window in range(10,11,2):
                     event_time = cumsum[idx[0][trigger]-1]
                     if len(yinterp[event_time - stimulus_window:event_time])==0:
                         stimulus.append(yinterp[0:stimulus_window])
-                        stimulus_fly.append(yinterpfly[0:stimulus_window])
                         stimulus_temp.append(yinterp[0:stimulus_window])
-                        stimulus_temp_fly.append(yinterpfly[0:stimulus_window])
+
                         stimulus_v_x.append(v_x_sensory[0:stimulus_window])
                         stimulus_v_y.append(v_y_sensory[0:stimulus_window])
                         stimulus_v_x_temp.append(v_x_sensory[0:stimulus_window])
                         stimulus_v_y_temp.append(v_y_sensory[0:stimulus_window])
                     else:
                         stimulus.append(yinterp[event_time - stimulus_window:event_time])
-                        stimulus_fly.append(yinterpfly[event_time - stimulus_window:event_time])
                         stimulus_temp.append(yinterp[event_time - stimulus_window:event_time])
-                        stimulus_temp_fly.append(yinterpfly[event_time - stimulus_window:event_time])
+
                         stimulus_v_x.append(v_x_sensory[event_time - stimulus_window:event_time])
                         stimulus_v_y.append(v_y_sensory[event_time - stimulus_window:event_time])
                         stimulus_v_x_temp.append(v_x_sensory[event_time - stimulus_window:event_time])
@@ -198,20 +154,16 @@ for stimulus_window in range(10,11,2):
 
 
             stimulus_all.append(stimulus_temp)
-            stimulus_fly_all.append(stimulus_temp_fly)
+
             stimulus_v_x_all.append(stimulus_v_x_temp)
             stimulus_v_y_all.append(stimulus_v_y_temp)
-
-
-            #beh_hmm= np.load(filenames[0].replace('.npz', '_hmm_umap_filtered_predictedlabels.npy'))
-            #beh_manual= np.load(filenames[0].replace('.npz', '_manuallabels.npy'))
 
 
 
 
             labeled_beh.append(beh_hmm)
             observations.append(list(yinterp))
-            observations_fly.append(list(yinterpfly))
+
 
 
         ## Spike trigger average of all videos. Mean centered
@@ -219,30 +171,17 @@ for stimulus_window in range(10,11,2):
         data_ensembles_len = stimulus_test.shape[0]
         arr = np.arange(data_ensembles_len)
         np.random.shuffle(arr)
-        #train_set = stimulus_test[arr[0:int(len(arr)*3/4)]]
-        #test_set = stimulus_test[arr[int(len(arr)*3/4):len(arr)]]
         train_set = stimulus_test
         sta = np.mean(train_set, axis=0)
-        #sta = sta-np.mean(sta)
 
 
 
-        stimulus_test = np.array(stimulus_fly)
-        data_ensembles_len = stimulus_test.shape[0]
-        arr = np.arange(data_ensembles_len)
-        np.random.shuffle(arr)
-        # train_set = stimulus_test[arr[0:int(len(arr)*3/4)]]
-        # test_set = stimulus_test[arr[int(len(arr)*3/4):len(arr)]]
-        train_set = stimulus_test
-        sta_fly = np.mean(train_set, axis=0)
-        #sta_fly = sta_fly-np.mean(sta_fly)
 
         stimulus_test = np.array(stimulus_v_x)
         data_ensembles_len = stimulus_test.shape[0]
         arr = np.arange(data_ensembles_len)
         np.random.shuffle(arr)
-        # train_set = stimulus_test[arr[0:int(len(arr)*3/4)]]
-        # test_set = stimulus_test[arr[int(len(arr)*3/4):len(arr)]]
+
         train_set = stimulus_test
         sta_vx = np.mean(train_set, axis=0)
 
@@ -250,21 +189,18 @@ for stimulus_window in range(10,11,2):
         data_ensembles_len = stimulus_test.shape[0]
         arr = np.arange(data_ensembles_len)
         np.random.shuffle(arr)
-        # train_set = stimulus_test[arr[0:int(len(arr)*3/4)]]
-        # test_set = stimulus_test[arr[int(len(arr)*3/4):len(arr)]]
+
         train_set = stimulus_test
         sta_vy = np.mean(train_set, axis=0)
 
         axs[0].plot(sta, label=str(states))
         sta_all.append(sta)
         axs[0].legend()
-        # axs[1].plot(sta_fly, label='sta_fly'+str(states))
-        # axs[1].legend()
+
         axs[1].plot(sta_vx, label=str(states))
         sta_vx_all.append(sta_vx)
         axs[1].legend()
-        # axs[3].plot(sta_vy, label=str(states))
-        # axs[3].legend()
+
 
 
 
@@ -273,10 +209,10 @@ for stimulus_window in range(10,11,2):
 
         labeled_beh = []
         observations = []
-        observations_fly = []
+
 
         linear_output_all=[]
-        linear_output_all_fly = []
+
         linear_output_all_vx = []
         linear_output_all_vy = []
         for j in range(len(sensory_roi_files)):
@@ -290,15 +226,7 @@ for stimulus_window in range(10,11,2):
             f_spec_fly_p = sensory_stft['f_spec_fly_p']
             f_spec_spider_p = sensory_stft['f_spec_spider_p']
             vid_name = sensory_roi_files[j].split('/sensory_auto\\')[1].split('_roi_coordinates_side.npz')[0]
-            r = roi_spider_list[:, 1] + roi_spider_list[:, 3] / 2 - roi_fly_list[:, 1] - roi_fly_list[:, 3] / 2
-            r = np.abs(r)
-            r = r / ((roi_spider_list[:, 2] + roi_spider_list[:, 3])) / 2
-            # r = r / np.min(r)
-            r = (1 / r) ** 2
-            r = r / np.max(r)
-            r[np.where(r < 0.5)[0]] = 0.5
-            # r = r + 0.5
-            # r = r / np.max(r)
+
             x = roi_fly_list[:, 0] + roi_fly_list[:, 2] / 2
             v_x = x - np.roll(x, 1)
             v_x = v_x[1:len(v_x)]
@@ -311,19 +239,15 @@ for stimulus_window in range(10,11,2):
             v_y = np.abs(v_y)
 
             ## Load beh
-            # filenames = glob.glob(videodirectory+ 'wavelet/'+vid_name+ '*_croprotaligned01234_nonormalized_wavelet.npz')
-            # csv_filenames = glob.glob(videodirectory+'merging_static/' + vid_name + '*_wavelet_timestep.csv')
             beh_hmm = np.load(
                 glob.glob(videodirectory + 'sensory_auto/' + vid_name + '*_hmm_umap_filtered_predictedlabels.npy')[0]
             )
 
             ## Sensory
             test_divide = np.divide(f_spec_fly, f_spec_fly_p)
-            # test_divide = np.mean(test_divide, axis=0)
+
             t = [i for i in range(int(40 / 2), (nframes - int(40 / 2)), 2)]
-            # t= [i for i in range(4000, 6000, 10)]
-            # if '0328' in sensory_roi_files[j]:
-            #     t.append(5100)
+
             t = np.array(t)
 
             t3 = [i for i in range(0, initial_time[j], 1)]
@@ -331,29 +255,13 @@ for stimulus_window in range(10,11,2):
             yinterp3 = np.interp(t3, t, np.mean(test_divide[0:13, ], axis=0))
             yinterp3_mean = np.mean(yinterp3)
             yinterp3_std = np.std(yinterp3)
-            yinterp3fly = np.interp(t3, t, np.mean(f_spec_fly[0:13, ], axis=0))
-            yinterp3fly_mean = np.mean(yinterp3fly)
-            yinterp3fly_std = np.std(yinterp3fly)
-            yinterp3spider = np.interp(t3, t, np.mean(f_spec_spider_p[0:13, ], axis=0))
-            yinterp3spider_mean = np.mean(yinterp3spider)
-            yinterp3spider_std = np.std(yinterp3spider)
 
             t2 = [i for i in range(initial_time[j], (len(beh_hmm) + initial_time[j]), 1)]
-            # # t= [i for i in range(4000, 6000, 10)]
+
             t2 = np.array(t2)
-            #
+
             yinterp = np.interp(t2, t, np.mean(test_divide[0:13, ], axis=0))
             yinterp = (yinterp - yinterp3_mean) / yinterp3_std
-            yinterpspider = np.interp(t2, t, np.mean(f_spec_spider_p[0:13, ], axis=0))
-            #yinterpspider = (yinterpspider - yinterp3spider_mean) / yinterp3spider_std
-            yinterpspider= yinterpspider / (np.max(yinterpspider))
-            # yinterp = yinterp/(np.max(yinterp))
-            # yinterp = interp1d(t,  test_divide, axis=1)
-            # yinterp = yinterp(t2)
-            yinterpfly = np.interp(t2, t, np.mean(f_spec_fly[0:13, :], axis=0))
-            yinterpfly = (yinterpfly - yinterp3fly_mean) / yinterp3fly_std
-            #yinterpfly = yinterpfly/(np.max(yinterpfly))
-            #yinterpfly = yinterpfly - yinterpspider * r[t2]
 
             v_x_sensory = v_x[t2][0:len(v_x[t2])]
             v_y_sensory = v_y[t2][0:len(v_y[t2])]
@@ -365,46 +273,32 @@ for stimulus_window in range(10,11,2):
             v_x_sensory = (v_x_sensory - np.mean(v_x_sensory)) / np.std(v_x_sensory)
             v_y_sensory = (v_y_sensory - np.mean(v_y_sensory)) / np.std(v_y_sensory)
 
-            # for v_time in range(len(v_x_sensory)):
-            #     if v_time < int(v_smooth_window / 2):
-            #         v_x_sensory[v_time] = np.max(v_x_sensory[0: int(v_smooth_window)])
-            #         v_y_sensory[v_time] = np.max(v_y_sensory[0: int(v_smooth_window)])
-            #     else:
-            #         v_x_sensory[v_time] = np.max(
-            #             v_x_sensory[v_time - int(v_smooth_window / 2): v_time + int(v_smooth_window / 2)])
-            #         v_y_sensory[v_time] = np.max(
-            #             v_y_sensory[v_time - int(v_smooth_window / 2): v_time + int(v_smooth_window / 2)])
-
             linear_output=[]
-            linear_output_fly=[]
+
             linear_output_v_x=[]
             linear_output_v_y=[]
             for k in range(len(yinterp)-stimulus_window):
-
                 linear_output.append(np.dot(yinterp[k:(k+stimulus_window)],sta))
-                linear_output_fly.append(np.dot(yinterpfly[k:(k + stimulus_window)], sta_fly))
+
                 linear_output_v_x.append(np.dot(v_x_sensory[k:(k + stimulus_window)], sta_vx))
                 linear_output_v_y.append(np.dot(v_y_sensory[k:(k + stimulus_window)], sta_vy))
-                # linear_output_v_x.append(v_x_sensory[k]))
-                # linear_output_v_y.append(v_y_sensory[k]))
+
             linear_output = np.array(linear_output)
-            linear_output_fly = np.array(linear_output_fly)
             linear_output_v_x = np.array(linear_output_v_x)
             linear_output_v_y = np.array(linear_output_v_y)
             linear_output_all.append(linear_output)
-            linear_output_all_fly.append(linear_output_fly)
+
             linear_output_all_vx.append(linear_output_v_x)
             linear_output_all_vy.append(linear_output_v_y)
             labeled_beh.append(beh_hmm[stimulus_window:len(beh_hmm)])
 
         linear_output_extend=[]
-        linear_output_fly_extend = []
+
         linear_output_vx_extend = []
         linear_output_vy_extend = []
         labeled_beh_extend=[]
         for i in range(len(linear_output_all)):
             linear_output_extend.extend(linear_output_all[i])
-            linear_output_fly_extend.extend(linear_output_all_fly[i])
             linear_output_vx_extend.extend(linear_output_all_vx[i])
             linear_output_vy_extend.extend(linear_output_all_vy[i])
             labeled_beh_extend.extend(labeled_beh[i])
@@ -418,7 +312,6 @@ for stimulus_window in range(10,11,2):
         train_x = np.array(linear_output_extend)[shuffled_indicies[:train_data_size]]
         train_y = np.array(labeled_beh_extend)[shuffled_indicies[:train_data_size]]
         test_x = np.array(linear_output_extend)
-        # test_x = np.array(observation_extend)[shuffled_indicies[train_data_size:]]
         test_y = np.array(labeled_beh_extend)
 
         ##Train multi-classification model with logistic regression
@@ -453,40 +346,27 @@ for stimulus_window in range(10,11,2):
         prob_states_lr_2.append(test_x_prob_lr)
         states_linear_output2.append(np.array(np.append(test_x, test_x_fly, axis=0).reshape(2, len(test_x)).transpose()))
 
-        ### Plot logistic regression
-        # loss = test_x_prob_lr[:, 0]
-        # ax = plt.figure().add_subplot(projection='3d')
-        # ax.scatter(test_x, test_x_fly, loss)
-        # loss = test_x_prob_lr[:, 1]
-        # ax.scatter(test_x, test_x_fly, loss, color='yellow')
-        # loss = test_x_prob_lr[:, 2]
-        # ax.scatter(test_x, test_x_fly, loss, color='orange')
-        # ax.set_xlabel('Z score of fly STFT')
-        # ax.set_ylabel('Fly y velocity')
-        # ax.set_zlabel('Prob')
-        # plt.show()
 
         ### 3 features
 
         train_x = np.array(linear_output_extend)[shuffled_indicies[:train_data_size]]
-        train_x_fly = np.array(linear_output_fly_extend)[shuffled_indicies[:train_data_size]]
         train_x_vx = np.array(linear_output_vx_extend)[shuffled_indicies[:train_data_size]]
         train_x_vy = np.array(linear_output_vy_extend)[shuffled_indicies[:train_data_size]]
         train_y = np.array(labeled_beh_extend)[shuffled_indicies[:train_data_size]]
         test_x = np.array(linear_output_extend)
-        test_x_fly = np.array(linear_output_fly_extend)
+
         test_x_vx = np.array(linear_output_vx_extend)
         test_x_vy = np.array(linear_output_vy_extend)
-        # test_x = np.array(observation_extend)[shuffled_indicies[train_data_size:]]
+
         test_y = np.array(labeled_beh_extend)
         lr = linear_model.LogisticRegression()
-        #temp = [train_x]+[train_x_fly]+[train_x_vx]+[train_x_vy]
+
         temp = [train_x] + [train_x_vx] + [train_x_vy]
         temp = np.array(temp)
         lr.fit(temp.transpose(), train_y)
         mul_lr = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg').fit(
             temp.transpose(), train_y)
-        #temp = [test_x] + [test_x_fly] + [test_x_vx] + [test_x_vy]
+
         temp = [test_x] + [test_x_vx] + [test_x_vy]
         temp = np.array(temp)
         test_x_prob_lr = lr.predict_proba(temp.transpose())
@@ -623,47 +503,3 @@ np.savez('states_linear_output_4features.npz', states_linear_output4=states_line
          labeled_beh_extend=labeled_beh_extend, prob_states_lr_4=prob_states_lr_4)
 np.savez('states_linear_output_2features.npz', states_linear_output2=states_linear_output2,
          labeled_beh_extend=labeled_beh_extend, prob_states_lr_2=prob_states_lr_2)
-
-
-### Fly veolocity FFT
-# import scipy
-# dataFFT = []
-# ff=[]
-# for i in range(len(linear_output_all_vx)):
-#     dataFFT.append(np.abs(scipy.fft.fft(linear_output_all_vx[i])))
-#     ff.append(np.fft.fftfreq(len(linear_output_all_vx[i]), 0.01))
-#
-#
-#
-# for i in range(16):
-#     dataFFT[i]  = dataFFT[i][ff[i]>0]
-#     ff[i] = ff[i][ff[i]>0]  # Fill each row with Z[i]
-#
-#
-# max_len = max(len(x) for x in ff)
-# Z_combined = np.zeros((len(ff), max_len))  # Initialize with zeros
-# # Align each Z[i] with the corresponding X[i]
-# for i, z in enumerate(dataFFT):
-#     Z_combined[i, :len(z)] = z  # Fill each row with Z[i]
-#
-# X_combined = np.linspace(0, 1, max_len)
-# Y_combined = np.arange(len(ff) )  # Row indices (0, 1, 2, ..., 4)
-#
-# max_len = max(len(x) for x in ff)
-# Z_combined = np.zeros((len(ff), max_len))  # Initialize with zeros
-# # Align each Z[i] with the corresponding X[i]
-# for i, z in enumerate(dataFFT):
-#     Z_combined[i, :len(z)] = z  # Fill each row with Z[i]
-#
-# X_combined = np.linspace(0, 50, max_len)
-# Y_combined = np.arange(len(ff) )  # Row indices (0, 1, 2, ..., 4)
-#
-#
-# # Plot
-# plt.figure(figsize=(8, 6))
-# plt.pcolormesh(X_combined, Y_combined, Z_combined, shading='nearest', cmap='viridis', vmax=500)
-# plt.colorbar(label="Z values")
-# plt.xlabel("Frequency")
-# plt.ylabel("Recording number")
-# plt.title("FFT of fly y velocity from side camera recording")
-# plt.show()
