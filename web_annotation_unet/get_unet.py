@@ -15,16 +15,21 @@ import tensorflow as tf
 
 smooth = 1.
 
+
 # Metric function
 def dice_coef(y_true, y_pred):
-    y_true_f = K.flatten(y_true)
-    y_pred_f = K.flatten(y_pred)
+    y_true_f = K.flatten(K.cast(y_true, 'float32'))
+    y_pred_f = K.flatten(K.cast(y_pred, 'float32'))
     intersection = K.sum(y_true_f * y_pred_f)
     return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
 
 # Loss funtion
 def dice_coef_loss(y_true, y_pred):
     return -dice_coef(y_true, y_pred)
+def bce_dice_loss(y_true, y_pred):
+    bce = tf.keras.losses.binary_crossentropy(y_true, y_pred)
+    dice = dice_coef_loss(y_true, y_pred)
+    return bce + dice
 
 
 def get_unet(IMG_WIDTH=1024,IMG_HEIGHT=1280,IMG_CHANNELS=1):

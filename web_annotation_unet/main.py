@@ -6,7 +6,7 @@ Created on Tue Feb 11 15:53:21 2025
 """
 
 
-from mask import *
+
 from get_unet import *
 
 
@@ -27,9 +27,7 @@ def create_circular_mask(h, w, center=None, radius=None):
 if __name__ == '__main__':
     import glob
     import numpy as np
-    from skimage.morphology import square
-    from loadAnnotations import *
-    import cv2
+
 
     ### Get dataset
 
@@ -87,9 +85,9 @@ if __name__ == '__main__':
 
 
     ### Read dataset
-    X = np.load('X_modified.npz')
+    X = np.load('web_annotation_unet/data/X_modified.npz')
     X = X['arr_0']
-    Y = np.load('Y_modified.npz')
+    Y = np.load('web_annotation_unet/data/Y_modified.npz')
     Y = Y['arr_0']
     from sklearn.model_selection import train_test_split
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
@@ -97,14 +95,6 @@ if __name__ == '__main__':
 
     # Split training data into training and validation sets (75% train, 25% validation)
     X_val, X_test, Y_val, Y_test = train_test_split(X_test, Y_test, test_size=0.25, random_state=42)
-
-    #
-    # X_syn = np.load('X_syn.npz')
-    # X_syn = X_syn['arr_0']
-    # Y_syn = np.load('Y_syn.npz')
-    # Y_syn = Y_syn['arr_0']
-    # X = np.concatenate((X, X_syn), axis=0)
-    # Y = np.concatenate((Y, Y_syn), axis=0)
 
 
 
@@ -220,7 +210,7 @@ if __name__ == '__main__':
     model.summary()
 
     # model = unet_model(input_shape=(1280, 1024,1))  # Adjust to match your data
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
+    model.compile(optimizer='adam', loss=bce_dice_loss, metrics=[dice_coef])
     model.summary()
 
     model.fit(X_train, Y_train, validation_data=(X_val, Y_val), epochs=10, batch_size=2)
@@ -229,44 +219,3 @@ if __name__ == '__main__':
     ##### If the PC memory allows you, do :
     # loss, acc = model.evaluate(X_test, Y_test)
     # print(f"Test Accuracy: {acc:.4f}")
-
-    ##### If you have memory issue, try memory-efficient evaluation:
-    import numpy as np
-    import tensorflow as tf
-    from tensorflow.keras.metrics import BinaryAccuracy
-
-    # Define loss function (use the same one as training)
-    loss_fn = tf.keras.losses.BinaryCrossentropy()
-    accuracy_fn = BinaryAccuracy()
-
-    # Initialize tracking variables
-    total_loss = 0.0
-    total_samples = 0
-
-    batch_size = 1  # Adjust based on available memory
-
-    for i in range(0, len(X_test), batch_size):
-        batch_x = X_test[i:i + batch_size]  # Extract batch
-        batch_y = Y_test[i:i + batch_size]
-
-        batch_pred = model(batch_x, training=False)  # Get predictions
-
-        # Compute loss for batch
-        batch_loss = loss_fn(batch_y, batch_pred).numpy()
-        total_loss += batch_loss * batch_x.shape[0]  # Scale by batch size
-
-        # Update accuracy
-        accuracy_fn.update_state(batch_y, batch_pred)
-
-        total_samples += batch_x.shape[0]
-
-    # Compute final metrics
-    average_loss = total_loss / total_samples
-    final_accuracy = accuracy_fn.result().numpy()
-
-    print(f"Test Loss: {average_loss:.4f}, Test Accuracy: {final_accuracy:.4f}")
-
-    # Predict on a test image
-    predictions = model.predict(X_test[:5])  # Get first 5 predictions
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
